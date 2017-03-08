@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marreco.VSRefactor", "Marreco.VSRefactor\Marreco.VSRefactor\Marreco.VSRefactor.csproj", "{7D58D8A9-505F-4FD2-9AB4-3FE0D688FB4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marreco.VSRefactor.Vsix", "Marreco.VSRefactor\Marreco.VSRefactor.Vsix\Marreco.VSRefactor.Vsix.csproj", "{8D15DDD9-58F5-4AAB-AC67-A05663D1A58D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7D58D8A9-505F-4FD2-9AB4-3FE0D688FB4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D58D8A9-505F-4FD2-9AB4-3FE0D688FB4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D58D8A9-505F-4FD2-9AB4-3FE0D688FB4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D58D8A9-505F-4FD2-9AB4-3FE0D688FB4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D15DDD9-58F5-4AAB-AC67-A05663D1A58D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D15DDD9-58F5-4AAB-AC67-A05663D1A58D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D15DDD9-58F5-4AAB-AC67-A05663D1A58D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D15DDD9-58F5-4AAB-AC67-A05663D1A58D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
