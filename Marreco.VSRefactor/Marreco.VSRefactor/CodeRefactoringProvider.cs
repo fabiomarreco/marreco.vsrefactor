@@ -77,6 +77,11 @@ namespace Marreco.VSRefactor
 
             var oldClass = localDeclaration.Ancestors().OfType<ClassDeclarationSyntax>().First();
 
+            var oldClassCodeRemoved = oldClass.RemoveNode(localDeclaration, SyntaxRemoveOptions.KeepTrailingTrivia);
+
+
+
+
             int lastIndex =
                 oldClass.Members.Select((m, i) => new { i, m })
                     .SkipWhile(s => s.m is FieldDeclarationSyntax)
@@ -91,7 +96,7 @@ namespace Marreco.VSRefactor
                         SyntaxFactory.Token(SyntaxKind.ReadOnlyKeyword)));
 
 
-            var oldClassWithField = oldClass.WithMembers(oldClass.Members.Insert(lastIndex, fieldDeclaration));
+            var oldClassWithField = oldClassCodeRemoved.WithMembers(oldClassCodeRemoved.Members.Insert(lastIndex, fieldDeclaration));
 
             var oldConstructor = oldClassWithField
                      .DescendantNodes()
@@ -137,31 +142,14 @@ namespace Marreco.VSRefactor
                                 SyntaxFactory.IdentifierName(paramName)))));
 
 
-                newclass = oldClass.WithMembers(oldClassWithField.Members.Insert(lastIndex+1, constructor));
+                newclass = oldClassCodeRemoved.WithMembers(oldClassWithField.Members.Insert(lastIndex+1, constructor));
             }
-
+            newclass = newclass.RemoveNode(localDeclaration, SyntaxRemoveOptions.KeepNoTrivia);
             var newRoot = oldRoot.ReplaceNode(oldClass, newclass);
             var newDoc = document.WithSyntaxRoot(newRoot);
+            //Clipboard.SetText(fieldName);
             return newDoc;
         }
-
-        private async Task<Solution> ReverseTypeNameAsync(Document document, TypeDeclarationSyntax typeDecl, CancellationToken cancellationToken)
-        {
-            // Produce a reversed version of the type declaration's identifier token.
-            var identifierToken = typeDecl.Identifier;
-            var newName = new string(identifierToken.Text.ToCharArray().Reverse().ToArray());
-
-            // Get the symbol representing the type to be renamed.
-            var semanticModel = await document.GetSemanticModelAsync(cancellationToken);
-            var typeSymbol = semanticModel.GetDeclaredSymbol(typeDecl, cancellationToken);
-
-            // Produce a new solution that has all references to that type renamed, including the declaration.
-            var originalSolution = document.Project.Solution;
-            var optionSet = originalSolution.Workspace.Options;
-            var newSolution = await Renamer.RenameSymbolAsync(document.Project.Solution, typeSymbol, newName, optionSet, cancellationToken).ConfigureAwait(false);
-
-            // Return the new solution with the now-uppercase type name.
-            return newSolution;
-        }
+        
     }
 }
