@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="Marreco.VSRefactor..dc4ed979-1edb-4f4f-bea2-a450c1e1b544" Version="1.0.1" Language="en-US" Publisher="fabio.marreco"/>
+    <Identity Id="Marreco.VSRefactor..5eb77674-bcef-4f35-b85e-78ecf1244f0d" Version="1.0.6" Language="en-US" Publisher="fabio.marreco"/>
     <DisplayName>Marreco.VSRefactor</DisplayName>
     <Description xml:space="preserve">This is a sample code refactoring extension for the .NET Compiler Platform ("Roslyn").</Description>
   </Metadata>

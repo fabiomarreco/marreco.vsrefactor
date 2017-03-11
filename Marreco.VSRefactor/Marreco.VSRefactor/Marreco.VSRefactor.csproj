@@ -9,7 +9,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>{7D58D8A9-505F-4FD2-9AB4-3FE0D688FB4D}</ProjectGuid>
+    <ProjectGuid>{76405105-BBB0-4BE2-A1AA-5626CE9B8848}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Marreco.VSRefactor</RootNamespace>
@@ -35,12 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Clipboard.cs" />
     <Compile Include="CodeRefactoringProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="eula.rtf" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

@@ -1,8 +1,6 @@
-using System;
 using System.Collections.Generic;
 using System.Composition;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis;
@@ -10,14 +8,9 @@ using Microsoft.CodeAnalysis.CodeActions;
 using Microsoft.CodeAnalysis.CodeRefactorings;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.Formatting;
 using Microsoft.CodeAnalysis.Rename;
 using Microsoft.CodeAnalysis.Text;
-using ClassDeclarationSyntax = Microsoft.CodeAnalysis.CSharp.Syntax.ClassDeclarationSyntax;
-using ExpressionStatementSyntax = Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionStatementSyntax;
-using FieldDeclarationSyntax = Microsoft.CodeAnalysis.CSharp.Syntax.FieldDeclarationSyntax;
-using SyntaxKind = Microsoft.CodeAnalysis.CSharp.SyntaxKind;
-using TypeDeclarationSyntax = Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax;
+using Microsoft.CodeAnalysis.Formatting;
 
 namespace Marreco.VSRefactor
 {
@@ -37,7 +30,7 @@ namespace Marreco.VSRefactor
             var localDeclaration = node as LocalDeclarationStatementSyntax;
             if (localDeclaration != null)
             {
-                if (!(localDeclaration.Parent?.Parent is MethodDeclarationSyntax))
+                if (!(localDeclaration.Ancestors().OfType<MethodDeclarationSyntax>().Any()))
                     return;
 
 
@@ -52,20 +45,20 @@ namespace Marreco.VSRefactor
                 if (classDeclr.Members.OfType<FieldDeclarationSyntax>()
                     .Any<FieldDeclarationSyntax>(s => s.Declaration.Variables.Any(v => v.ToString() == text)))
                     return;
-                
+
 
                 //classDeclr.AddMembers(new MemberDeclarationSyntax())
-                
-               // classDeclr.Members.OfType<FieldDeclarationSyntax>().Any(f=> f.)
+
+                // classDeclr.Members.OfType<FieldDeclarationSyntax>().Any(f=> f.)
                 var action = CodeAction.Create("Inject in constructor and set field", c => InjectInConstructorAndSetField(context.Document, localDeclaration, c));
                 context.RegisterRefactoring(action);
             }
 
         }
 
-        private async  Task<Document> InjectInConstructorAndSetField(Document document, LocalDeclarationStatementSyntax localDeclaration, CancellationToken token)
+        private async Task<Document> InjectInConstructorAndSetField(Document document, LocalDeclarationStatementSyntax localDeclaration, CancellationToken token)
         {
-            
+
             var fieldName = localDeclaration.Declaration.Variables.ToString().Trim();
             var paramName = fieldName.Trim('_');
             var dependencyType = localDeclaration.Declaration.Type;
@@ -142,14 +135,11 @@ namespace Marreco.VSRefactor
                                 SyntaxFactory.IdentifierName(paramName)))));
 
 
-                newclass = oldClassCodeRemoved.WithMembers(oldClassWithField.Members.Insert(lastIndex+1, constructor));
+                newclass = oldClassCodeRemoved.WithMembers(oldClassWithField.Members.Insert(lastIndex + 1, constructor));
             }
-            newclass = newclass.RemoveNode(localDeclaration, SyntaxRemoveOptions.KeepNoTrivia);
             var newRoot = oldRoot.ReplaceNode(oldClass, newclass);
             var newDoc = document.WithSyntaxRoot(newRoot);
-            //Clipboard.SetText(fieldName);
             return newDoc;
         }
-        
     }
 }
