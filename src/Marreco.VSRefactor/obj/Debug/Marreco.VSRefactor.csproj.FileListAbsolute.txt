@@ -1,0 +1,10 @@
+c:\temp\Marreco.VSRefactor\Marreco.VSRefactor\Marreco.VSRefactor\bin\Debug\Marreco.VSRefactor.dll
+c:\temp\Marreco.VSRefactor\Marreco.VSRefactor\Marreco.VSRefactor\bin\Debug\Marreco.VSRefactor.pdb
+c:\temp\Marreco.VSRefactor\Marreco.VSRefactor\Marreco.VSRefactor\obj\Debug\Marreco.VSRefactor.csprojResolveAssemblyReference.cache
+c:\temp\Marreco.VSRefactor\Marreco.VSRefactor\Marreco.VSRefactor\obj\Debug\Marreco.VSRefactor.dll
+c:\temp\Marreco.VSRefactor\Marreco.VSRefactor\Marreco.VSRefactor\obj\Debug\Marreco.VSRefactor.pdb
+C:\temp\Marreco.VSRefactor\src\Marreco.VSRefactor\bin\Debug\Marreco.VSRefactor.dll
+C:\temp\Marreco.VSRefactor\src\Marreco.VSRefactor\bin\Debug\Marreco.VSRefactor.pdb
+C:\temp\Marreco.VSRefactor\src\Marreco.VSRefactor\obj\Debug\Marreco.VSRefactor.csprojResolveAssemblyReference.cache
+C:\temp\Marreco.VSRefactor\src\Marreco.VSRefactor\obj\Debug\Marreco.VSRefactor.dll
+C:\temp\Marreco.VSRefactor\src\Marreco.VSRefactor\obj\Debug\Marreco.VSRefactor.pdb
