@@ -1,3 +1,0 @@
-C:\Users\fabio.marreco\AppData\Local\Microsoft\VisualStudio\14.0Roslyn\Extensions\fabio.marreco\Marreco.VSRefactor\1.0\\Marreco.VSRefactor.dll
-C:\Users\fabio.marreco\AppData\Local\Microsoft\VisualStudio\14.0Roslyn\Extensions\fabio.marreco\Marreco.VSRefactor\1.0\\extension.vsixmanifest
-C:\Users\fabio.marreco\AppData\Local\Microsoft\VisualStudio\14.0Roslyn\Extensions\fabio.marreco\Marreco.VSRefactor\1.0\\Marreco.VSRefactor.pdb
